@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ----------------------------------------------------------------------------
+   Design tokens — Light (clean minimal) is the default :root.
+   Dark (charcoal + curated confetti accents) overrides under .dark
+---------------------------------------------------------------------------- */
+:root {
+  --background: #ffffff;
+  --surface: #f6f6f8;
+  --card: #ffffff;
+  --foreground: #0d0d10;
+  --muted: #56565f;
+  --border: #e7e7ec;
+  --border-strong: #d6d6dd;
+
+  /* Signature accent — burnt orange, high-contrast on white (~5:1) so it stays
+     readable even on small text. Used for text, links, buttons and numbering. */
+  --accent: #c2410c;
+  --accent-contrast: #ffffff;
+
+  /* Curated confetti palette (used sparingly across both themes) */
+  --c-lime: #65a30d;
+  --c-pink: #ec4899;
+  --c-blue: #2563eb;
+  --c-purple: #7c3aed;
+  --c-amber: #d97706;
+
+  --photo-filter: none; /* full colour in light mode */
+
+  --shadow-soft: 0 1px 2px rgba(13, 13, 16, 0.04), 0 8px 24px rgba(13, 13, 16, 0.06);
+  --shadow-card: 0 1px 2px rgba(13, 13, 16, 0.05), 0 12px 40px rgba(13, 13, 16, 0.08);
+}
+
+.dark {
+  --background: #0e0e10;
+  --surface: #141417;
+  --card: #17171b;
+  --foreground: #f5f5f7;
+  --muted: #8a8a93;
+  --border: #26262c;
+  --border-strong: #34343c;
+
+  --accent: #b6ff3c;          /* electric lime — the signature colour */
+  --accent-contrast: #0e0e10;
+
+  --c-lime: #b6ff3c;
+  --c-pink: #ff5c8a;
+  --c-blue: #4cc9ff;
+  --c-purple: #9b5cff;
+  --c-amber: #ffd23c;
+
+  /* Editorial monochrome portrait in dark mode */
+  --photo-filter: grayscale(100%) contrast(1.05) brightness(0.95);
+
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 14px 44px rgba(0, 0, 0, 0.6);
+}
+
+/* Map tokens to Tailwind utilities (bg-background, text-accent, etc.) */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+
+  --color-c-lime: var(--c-lime);
+  --color-c-pink: var(--c-pink);
+  --color-c-blue: var(--c-blue);
+  --color-c-purple: var(--c-purple);
+  --color-c-amber: var(--c-amber);
+
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ----------------------------------------------------------------------------
+   Base
+---------------------------------------------------------------------------- */
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* offset for sticky navbar on anchor jumps */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* ----------------------------------------------------------------------------
+   Reusable utility classes
+---------------------------------------------------------------------------- */
+.font-display {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+.section-pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* Subtle grid texture used behind the hero */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+          mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+}
+
+.portrait-filter {
+  filter: var(--photo-filter);
+  transition: filter 0.5s ease;
+}
+
+/* Accessibility: respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
