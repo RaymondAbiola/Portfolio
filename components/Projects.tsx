@@ -11,7 +11,7 @@ export function Projects() {
           index="03"
           eyebrow="Projects"
           title="Things I've shipped."
-          description="A selection of smart-contract systems and dApps — from a national voting protocol to peer-to-peer microinsurance. Open the case study for the full technical breakdown."
+          description="A selection of smart-contract systems and dApps; from a decentralized freelance escrow platform to peer-to-peer microinsurance. Open the case study for the full technical breakdown."
         />
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">

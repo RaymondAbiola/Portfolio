@@ -87,8 +87,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
           >
-            {profile.tagline} Solidity, Foundry, Hardhat &amp; TypeScript — with an
-            engineer&apos;s eye for security and gas.
+            {profile.tagline} Proficient in Solidity, Foundry, Hardhat &amp; TypeScript, with an
+            engineer&apos;s eye for security and gas optimization.
           </motion.p>
 
           <motion.div

@@ -10,7 +10,7 @@ export function Skills() {
           index="02"
           eyebrow="Skills"
           title="The stack I build with."
-          description="From low-level Solidity and gas profiling to the full dApp frontend — the tools I reach for to ship secure, maintainable Web3 systems."
+          description="From low-level Solidity and gas profiling to the full dApp frontend, here are the tools I reach for to ship secure, maintainable Web3 systems."
         />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
