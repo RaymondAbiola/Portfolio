@@ -510,6 +510,10 @@ export const getProject = (slug: string) => projects.find((p) => p.slug === slug
 // ---------------------------------------------------------------------------
 // Contact / social links
 // ---------------------------------------------------------------------------
+// Cal.com booking — the "<username>/<event>" portion of your cal.com link.
+// From https://cal.com/raymondabiola/30min  →  "raymondabiola/30min"
+export const calLink = "raymondabiola/30min";
+
 export const socials = {
   email: "raymondintell@gmail.com",
   github: "https://github.com/RaymondAbiola",
@@ -523,5 +527,6 @@ export const navLinks = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Book a Call", href: "#book" },
   { label: "Contact", href: "#contact" },
 ] as const;

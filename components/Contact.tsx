@@ -17,7 +17,7 @@ export function Contact() {
       <ConfettiDots />
       <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <Reveal>
-          <p className="font-mono text-sm text-accent">05 — Contact</p>
+          <p className="font-mono text-sm text-accent">06 — Contact</p>
           <h2 className="font-display mt-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Let&apos;s build something great.
           </h2>
