@@ -16,7 +16,7 @@ export const profile = {
     "Security Enthusiast",
   ],
   tagline:
-    "I design and ship secure, gas-efficient EVM smart contracts and the dApps around them.",
+    "I design and ship secure, gas-efficient EVM smart contracts and the dApps around them. ",
   location: "Lagos, Nigeria",
   availability: "Open to blockchain engineering roles",
   resumeUrl: "/Raymond-Abiola-Resume.pdf", // drop your latest PDF into /public with this name
@@ -44,8 +44,8 @@ export const about = {
   paragraphs: [
     "I'm a Solidity developer with hands-on experience building smart contracts and full-fledged EVM-based systems using tools like Hardhat, Foundry, OpenZeppelin, and TypeScript.",
     "Over time, I've designed and developed several blockchain projects that reflect both technical depth and real-world logic. What sets me apart is not just technical ability, but an engineer's mindset: I break problems into smart, testable units and build with maintainability and clarity in mind. I also reason deeply about protocol design, user safety, and gas efficiency.",
-    "My journey began on the non-technical side — four years in the blockchain space, including a community role on the youves DeFi protocol where I tested pre-release smart contracts on the Tezos ecosystem. That exposure to real protocol mechanics is what pulled me into engineering, and for the past two years I've focused entirely on building.",
-    "I'm now looking to bring that mindset to a serious blockchain team — one that values thoughtful engineering, curiosity, and clean architecture. Let's build something great.",
+    "My journey began on the non-technical side, four years in the blockchain space, including a community role on the youves DeFi protocol where I tested pre-release smart contracts on the Tezos ecosystem. That exposure to real protocol mechanics is what pulled me into engineering, and for the past two years I've focused entirely on building.",
+    "I'm now looking to bring that mindset to a serious blockchain team, one that values thoughtful engineering, curiosity, and clean architecture. Let's build something great.",
   ],
 } as const;
 
@@ -65,7 +65,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Web3 & Frontend",
-    items: ["ethers.js", "viem", "wagmi", "Reown AppKit", "React", "Next.js", "Tailwind CSS"],
+    items: ["React", "Next.js", "ethers.js", "viem", "wagmi", "Reown AppKit", "RainbowKit", "Tailwind CSS", "React Hot Toast"],
   },
   {
     category: "Testing & Quality",
@@ -80,6 +80,10 @@ export const skills: SkillGroup[] = [
       "ERC-20 / ERC-721",
       "Tokenomics",
       "Security Auditing",
+      "Merkle Trees",
+      "Cryptographic Hashing",
+      "Factory Patterns",
+       "EVM-Opcodes" 
     ],
   },
   {
@@ -230,7 +234,7 @@ export const projects: Project[] = [
     featured: true,
     accent: "lime",
     summary:
-      "A decentralized freelancing platform that locks client payments in escrow, releases them per milestone, and resolves disputes through a staked, randomly-selected arbitrator DAO. My team's capstone project at the Web3Bridge bootcamp — a team of five.",
+      "A decentralized freelancing platform that locks client payments in escrow, releases them per milestone, and resolves disputes through a staked, randomly-selected arbitrator DAO. This is my team's capstone project at the Web3Bridge bootcamp and we were a team of five.",
     overview: [
       "TrustWork solves the core trust problem in remote work: clients are reluctant to prepay, freelancers fear non-payment after delivery, and centralized platforms charge 10–20% with opaque dispute processes. TrustWork replaces that with transparent, code-enforced escrow.",
       "A client deposits USDC and posts a job with defined milestones. A freelancer is selected, and for each completed milestone they submit proof; on the client's approval the freelancer is paid instantly (92% of the milestone), with the platform fee handled in basis points. The whole job lifecycle (OPEN → ACTIVE → COMPLETED / DISPUTED / CANCELLED) lives on-chain.",
@@ -506,6 +510,10 @@ export const getProject = (slug: string) => projects.find((p) => p.slug === slug
 // ---------------------------------------------------------------------------
 // Contact / social links
 // ---------------------------------------------------------------------------
+// Cal.com booking — the "<username>/<event>" portion of your cal.com link.
+// From https://cal.com/raymondabiola/30min  →  "raymondabiola/30min"
+export const calLink = "raymondabiola/30min";
+
 export const socials = {
   email: "raymondintell@gmail.com",
   github: "https://github.com/RaymondAbiola",
@@ -519,5 +527,6 @@ export const navLinks = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Book a Call", href: "#book" },
   { label: "Contact", href: "#contact" },
 ] as const;
