@@ -36,8 +36,7 @@ export function Contact() {
             </a>
             <a
               href={profile.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              download
               className="inline-flex items-center gap-2 rounded-full border border-border-strong px-7 py-3.5 text-sm font-semibold transition-colors hover:border-accent hover:text-accent"
             >
               Download Résumé

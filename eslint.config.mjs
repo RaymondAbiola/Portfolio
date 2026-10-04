@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local build helper for generating the resume PDF — not part of the app.
+    "resume-src/**",
   ]),
 ]);
 

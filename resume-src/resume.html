@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Raymond Abiola — Resume</title>
+<style>
+  :root { --accent: #1d4ed8; --ink: #0f172a; --body: #334155; --muted: #64748b; --line: #e2e8f0; }
+  * { box-sizing: border-box; }
+  @page { size: A4; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body {
+    font-family: "Helvetica Neue", Arial, "Segoe UI", system-ui, sans-serif;
+    color: var(--body);
+    font-size: 12px;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 14mm 16mm; background: #fff; }
+
+  /* Header */
+  header h1 { margin: 0; font-size: 30px; font-weight: 800; letter-spacing: -0.5px; color: var(--ink); }
+  .subtitle { margin: 5px 0 0; font-size: 13px; font-weight: 600; color: var(--accent); }
+  .contact { margin-top: 9px; font-size: 11px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+  .contact .sep { color: #cbd5e1; }
+  .rule { height: 2px; background: var(--accent); margin-top: 11px; }
+
+  /* Layout */
+  .body { display: grid; grid-template-columns: 1fr 1.95fr; gap: 26px; margin-top: 16px; }
+
+  h2.section { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin: 0 0 7px; }
+  section { margin-bottom: 13px; }
+  section:last-child { margin-bottom: 0; }
+
+  .skill-group { margin-bottom: 7px; }
+  .skill-cat { font-size: 11px; font-weight: 700; color: var(--ink); margin: 0; }
+  .skill-items { font-size: 11px; color: var(--muted); margin: 1px 0 0; }
+
+  .edu { margin-bottom: 7px; }
+  .edu p { margin: 0; }
+  .edu .deg { font-size: 11px; font-weight: 700; color: var(--ink); }
+  .edu .org { font-size: 11px; color: var(--accent); }
+  .edu .when { font-size: 10px; color: var(--muted); }
+
+  .links p { margin: 0 0 3px; font-size: 11px; color: var(--muted); }
+
+  .award { border-left: 2px solid var(--accent); padding-left: 8px; }
+  .award p { margin: 0; }
+  .award .what { font-size: 11px; font-weight: 700; color: var(--ink); }
+  .award .where { font-size: 11px; color: var(--accent); }
+  .award .note { font-size: 10px; color: var(--muted); margin-top: 1px; }
+
+  .profile { font-size: 11.5px; color: var(--body); margin: 0; }
+
+  .job { margin-bottom: 10px; }
+  .job:last-child { margin-bottom: 0; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .job-title { font-size: 12px; font-weight: 700; color: var(--ink); margin: 0; }
+  .job-when { font-size: 10px; color: var(--muted); white-space: nowrap; }
+  .job-org { font-size: 11px; font-weight: 600; color: var(--accent); margin: 1px 0 0; }
+  ul { margin: 4px 0 0; padding-left: 15px; }
+  li { font-size: 11px; color: var(--body); margin-bottom: 2px; }
+  li::marker { color: #94a3b8; }
+
+  .proj { margin-bottom: 9px; }
+  .proj:last-child { margin-bottom: 0; }
+  .proj p { margin: 0; }
+  .proj .name { font-size: 11.5px; font-weight: 700; color: var(--ink); }
+  .proj .desc { font-size: 11.5px; color: var(--body); }
+  .proj .tech { font-size: 10px; color: var(--accent); margin-top: 1px; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Raymond Abiola</h1>
+      <p class="subtitle">Blockchain Developer · Smart Contract Engineer · Uniswap v4 Hooks · Solidity / TypeScript</p>
+      <div class="contact">
+        <span>raymondintell@gmail.com</span>
+        <span class="sep">|</span>
+        <span>github.com/RaymondAbiola</span>
+        <span class="sep">|</span>
+        <span>linkedin.com/in/raymondabiola</span>
+        <span class="sep">|</span>
+        <span>Lagos, Nigeria</span>
+      </div>
+      <div class="rule"></div>
+    </header>
+
+    <div class="body">
+      <!-- Left column -->
+      <aside>
+        <section>
+          <h2 class="section">Awards</h2>
+          <div class="award">
+            <p class="what">Hookathon Track Winner</p>
+            <p class="where">Uniswap Hook Incubator — Cohort 10 (UHI-10)</p>
+            <p class="note">Theme: MEV protection &amp; sustainable low-fee liquidity on Uniswap v4 · Sep 2026</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section">Skills</h2>
+          <div class="skill-group"><p class="skill-cat">Languages</p><p class="skill-items">Solidity, TypeScript, JavaScript</p></div>
+          <div class="skill-group"><p class="skill-cat">Contract Tooling</p><p class="skill-items">Foundry, Hardhat, OpenZeppelin, Remix, Forge</p></div>
+          <div class="skill-group"><p class="skill-cat">Web3 &amp; Frontend</p><p class="skill-items">ethers.js, viem, wagmi, React, Next.js, Tailwind</p></div>
+          <div class="skill-group"><p class="skill-cat">Testing &amp; Quality</p><p class="skill-items">Foundry Tests, Mocha, Chai, Mainnet Forking, Gas Profiling</p></div>
+          <div class="skill-group"><p class="skill-cat">Uniswap v4 &amp; MEV</p><p class="skill-items">v4 Hooks, PoolManager, ERC-6909 Claims, Dynamic Fees, Markout Analysis</p></div>
+          <div class="skill-group"><p class="skill-cat">Concepts</p><p class="skill-items">DeFi, Access Control, Reentrancy Safety, ERC-20 / 721, Security Auditing</p></div>
+        </section>
+
+        <section>
+          <h2 class="section">Education</h2>
+          <div class="edu"><p class="deg">Uniswap Hook Incubator — Cohort 10</p><p class="org">Atrium Academy · Uniswap Foundation</p><p class="when">2026 · Online</p></div>
+          <div class="edu"><p class="deg">Intensive Solidity &amp; dApp Development</p><p class="org">Web3Bridge Africa</p><p class="when">Jan 2026 — May 2026 · Onsite</p></div>
+          <div class="edu"><p class="deg">Solidity Foundation Bootcamp</p><p class="org">Encode Club</p><p class="when">Sep 2022 — Oct 2022</p></div>
+          <div class="edu"><p class="deg">Blockchain Developer Bootcamp</p><p class="org">EatTheBlocks</p><p class="when">Mar 2022 — May 2022</p></div>
+          <div class="edu"><p class="deg">B.Eng, Chemical Engineering</p><p class="org">University of Benin</p><p class="when">2011 — 2016</p></div>
+        </section>
+
+        <section>
+          <h2 class="section">Links</h2>
+          <div class="links">
+            <p>GitHub · github.com/RaymondAbiola</p>
+            <p>LinkedIn · linkedin.com/in/raymondabiola</p>
+            <p>X · x.com/raymondintell</p>
+            <p>Telegram · t.me/raymondintell</p>
+          </div>
+        </section>
+      </aside>
+
+      <!-- Right column -->
+      <main>
+        <section>
+          <h2 class="section">Profile</h2>
+          <p class="profile">
+            Solidity developer with hands-on experience building secure, gas-efficient EVM smart
+            contracts and the dApps around them using Foundry, Hardhat, OpenZeppelin and TypeScript.
+            Track winner at the Uniswap Hook Incubator (UHI-10) for a v4 hook that prices MEV on
+            realised outcomes rather than predictions, validated against 26,209 real mainnet swaps.
+            Four years in the blockchain space, now focused on shipping well-tested, maintainable
+            on-chain systems. Specialises in DeFi, Uniswap v4 hooks, mechanism design, security
+            best-practices and gas optimisation.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="section">Experience</h2>
+
+          <div class="job">
+            <div class="job-head">
+              <p class="job-title">Hook Developer — Impact Rebated Fees</p>
+              <p class="job-when">Sep 2026</p>
+            </div>
+            <p class="job-org">Uniswap Hook Incubator (UHI-10) · Track Winner · Solo</p>
+            <ul>
+              <li>Won a prize track at the UHI-10 Hookathon with a Uniswap v4 hook that settles each swap&rsquo;s fee <em>after</em> the trade on realised price drift — charging on an observed outcome instead of a pre-swap prediction, with no oracle or off-chain service.</li>
+              <li>Validated against 26,209 real USDC/WETH mainnet swaps: +32.7% LP revenue over the base fee, at an expected cost of 0.71 bps to an uninformed trader.</li>
+              <li>Stack: Solidity 0.8.26, Uniswap v4, ERC-6909 claims, Foundry (26 tests, 96% coverage), Python, Next.js + wagmi.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <p class="job-title">Smart Contract Developer — TrustWork (Capstone)</p>
+              <p class="job-when">2026</p>
+            </div>
+            <p class="job-org">Web3Bridge Bootcamp · Team of 5</p>
+            <ul>
+              <li>Built a decentralized freelancer escrow platform with milestone payments and DAO-arbitrated disputes across a 4-contract system (escrow, staked arbitrator DAO, soulbound reputation NFTs, profile registry).</li>
+              <li>Stack: Solidity 0.8.28, Foundry, OpenZeppelin v5, ERC-2771 meta-tx, Next.js + wagmi, USDC on Lisk.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <p class="job-title">Community Manager — youves DeFi Protocol</p>
+              <p class="job-when">Nov 2021 — Jun 2024</p>
+            </div>
+            <p class="job-org">Papers AG · Remote (Zug, Switzerland)</p>
+            <ul>
+              <li>Tested pre-release smart contracts and reported bugs and edge cases to the dev team, improving launch safety.</li>
+              <li>Coordinated product launches and ran Python scripts to generate weekly protocol statistics for the community.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section">Key Projects</h2>
+          <div class="proj">
+            <p><span class="name">Impact Rebated Fees</span> <span class="desc">— Uniswap v4 hook charging a refundable 25 bps deposit settled on post-swap price drift (UHI-10 track winner). Live on Unichain Sepolia.</span></p>
+            <p class="tech">Solidity · Uniswap v4 · Foundry · ERC-6909 · Python — impact-rebated-fees.vercel.app</p>
+          </div>
+          <div class="proj">
+            <p><span class="name">FedVote</span> <span class="desc">— Tamper-resistant on-chain national voting (Hedera hackathon, team lead of 5). 8-contract system with role-based access control, soulbound NFT badges and streak-based incentives.</span></p>
+            <p class="tech">Solidity · Foundry · OpenZeppelin · React · ethers.js — github.com/RaymondAbiola/FedVote</p>
+          </div>
+          <div class="proj">
+            <p><span class="name">SafeCircles</span> <span class="desc">— Peer-to-peer microinsurance with photo-evidenced claims and on-chain governance voting (Monad hackathon, team lead of 2).</span></p>
+            <p class="tech">Solidity · Foundry · Next.js · wagmi · IPFS — github.com/RaymondAbiola/SafeCircles</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

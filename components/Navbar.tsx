@@ -58,8 +58,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href={profile.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            download
             className="hidden rounded-full border border-border-strong px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent sm:inline-flex"
           >
             Résumé
@@ -93,8 +92,7 @@ export function Navbar() {
             ))}
             <a
               href={profile.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              download
               onClick={() => setOpen(false)}
               className="mt-2 rounded-lg bg-accent px-3 py-3 text-center text-base font-semibold text-accent-contrast"
             >
