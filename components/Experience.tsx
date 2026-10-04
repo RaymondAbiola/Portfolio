@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Trophy } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { education, experience } from "@/lib/data";
@@ -45,6 +45,12 @@ export function Experience() {
                       <span aria-hidden>·</span>
                       <span>{job.type}</span>
                     </div>
+                    {job.award ? (
+                      <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 text-xs font-semibold text-accent">
+                        <Trophy className="h-3.5 w-3.5 shrink-0" />
+                        {job.award}
+                      </div>
+                    ) : null}
                     <ul className="mt-3 space-y-2">
                       {job.bullets.map((b, bi) => (
                         <li key={bi} className="flex gap-2 text-sm leading-relaxed text-muted">

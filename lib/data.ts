@@ -12,6 +12,7 @@ export const profile = {
     "Smart Contract Engineer",
     "Solidity Developer",
     "DeFi Builder",
+    "Uniswap v4 Hook Developer",
     "dApp Engineer",
     "Security Enthusiast",
   ],
@@ -24,16 +25,36 @@ export const profile = {
   portraitDark: "/portrait.png", // same file; dark mode applies a monochrome filter via CSS
 } as const;
 
+// ---------------------------------------------------------------------------
+// Headline award — drives the hero badge and the awards strip.
+// Spell out the exact prize-track name in `placement` whenever you want it named.
+// ---------------------------------------------------------------------------
+export const award = {
+  placement: "Track Winner",
+  event: "Uniswap Hook Incubator — Cohort 10",
+  eventShort: "UHI-10 Hookathon",
+  org: "Atrium Academy · Uniswap Foundation",
+  theme:
+    "The Fair Flow Frontier — MEV protection and sustainable low-fee liquidity on Uniswap v4",
+  period: "Sep 2026",
+  projectSlug: "impact-rebated-fees",
+  projectName: "Impact Rebated Fees",
+  url: "https://impact-rebated-fees.vercel.app/",
+} as const;
+
 export const about = {
   // Headline stats shown beside the bio
   stats: [
     { value: "4+", label: "Years in blockchain" },
     { value: "2+", label: "Years building dApps & contracts" },
-    { value: "10+", label: "Smart-contract projects" },
-    { value: "2", label: "Hackathons led" },
+    { value: "12+", label: "Smart-contract projects" },
+    { value: "UHI-10", label: "Hookathon track winner" },
   ],
   specialties: [
     "DeFi protocols",
+    "Uniswap v4 hooks",
+    "MEV protection",
+    "Mechanism design",
     "Smart contracts",
     "NFTs",
     "dApp frontends",
@@ -44,6 +65,7 @@ export const about = {
   paragraphs: [
     "I'm a Solidity developer with hands-on experience building smart contracts and full-fledged EVM-based systems using tools like Hardhat, Foundry, OpenZeppelin, and TypeScript.",
     "Over time, I've designed and developed several blockchain projects that reflect both technical depth and real-world logic. What sets me apart is not just technical ability, but an engineer's mindset: I break problems into smart, testable units and build with maintainability and clarity in mind. I also reason deeply about protocol design, user safety, and gas efficiency.",
+    "Most recently I won a prize track at the Uniswap Hook Incubator (UHI-10), the Uniswap Foundation’s hook-development cohort run with Atrium Academy, for Impact Rebated Fees — a v4 hook that prices MEV after the fact instead of trying to predict it. I replayed 26,209 real mainnet swaps to choose its parameters, landing on settings that lift LP revenue by 32.7% while costing an ordinary trader 0.71 bps. It is the clearest example of how I like to work: pick the mechanism the evidence supports, not the one that demos well.",
     "My journey began on the non-technical side, four years in the blockchain space, including a community role on the youves DeFi protocol where I tested pre-release smart contracts on the Tezos ecosystem. That exposure to real protocol mechanics is what pulled me into engineering, and for the past two years I've focused entirely on building.",
     "I'm now looking to bring that mindset to a serious blockchain team, one that values thoughtful engineering, curiosity, and clean architecture. Let's build something great.",
   ],
@@ -57,11 +79,25 @@ export type SkillGroup = { category: string; items: string[] };
 export const skills: SkillGroup[] = [
   {
     category: "Languages",
-    items: ["Solidity", "TypeScript", "JavaScript"],
+    items: ["Solidity", "TypeScript", "JavaScript", "Python"],
   },
   {
     category: "Contract Tooling",
     items: ["Foundry", "Hardhat", "OpenZeppelin", "Remix", "Forge", "Ignition"],
+  },
+  {
+    category: "Uniswap v4 & MEV",
+    items: [
+      "v4 Hooks",
+      "PoolManager / Singleton",
+      "ERC-6909 Claims",
+      "afterSwap Return Deltas",
+      "Dynamic & Directional Fees",
+      "Tick Math",
+      "Markout Analysis",
+      "Informed Flow / LVR",
+      "Hook Address Mining",
+    ],
   },
   {
     category: "Web3 & Frontend",
@@ -69,7 +105,16 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Testing & Quality",
-    items: ["Foundry Tests", "Mocha", "Chai", "Mainnet Forking", "Gas Profiling"],
+    items: [
+      "Foundry Tests",
+      "Invariant & Fuzz Testing",
+      "Historical Swap Replay",
+      "Mocha",
+      "Chai",
+      "Mainnet Forking",
+      "Gas Profiling",
+      "Coverage Reporting",
+    ],
   },
   {
     category: "Concepts",
@@ -83,6 +128,9 @@ export const skills: SkillGroup[] = [
       "Merkle Trees",
       "Cryptographic Hashing",
       "Factory Patterns",
+      "AMM Mechanics",
+      "MEV & Price Impact",
+      "Incentive Design",
        "EVM-Opcodes" 
     ],
   },
@@ -102,10 +150,27 @@ export type Experience = {
   period: string;
   location: string;
   url?: string;
+  /** Set when the role produced an award — renders a badge on the timeline card. */
+  award?: string;
   bullets: string[];
 };
 
 export const experience: Experience[] = [
+  {
+    role: "Hook Developer — Impact Rebated Fees",
+    org: "Uniswap Hook Incubator (UHI-10)",
+    type: "Hookathon · Solo build",
+    period: "Sep 2026",
+    location: "Remote",
+    url: "https://impact-rebated-fees.vercel.app/",
+    award: "Track Winner · UHI-10 Hookathon",
+    bullets: [
+      "Won a prize track at the Uniswap Hook Incubator Cohort 10 Hookathon, themed “The Fair Flow Frontier: MEV protection and sustainable low-fee liquidity on Uniswap v4.”",
+      "Designed and shipped a Uniswap v4 hook that settles each swap’s fee after the trade on realised price drift — charging on an observed outcome rather than a pre-swap prediction, with no oracle and no off-chain service.",
+      "Validated the mechanism against 26,209 real USDC/WETH mainnet swaps: +32.7% LP revenue over the base fee alone, at an expected cost of 0.71 bps to an uninformed trader.",
+      "Stack: Solidity 0.8.26, Foundry (26 tests, 96% hook coverage, invariant + fuzz), Uniswap v4 core/periphery, ERC-6909 claims, Python analysis, Next.js + wagmi, live on Unichain Sepolia.",
+    ],
+  },
   {
     role: "Smart Contract Developer — TrustWork (Capstone)",
     org: "Web3Bridge Bootcamp",
@@ -176,6 +241,15 @@ export type Education = {
 
 export const education: Education[] = [
   {
+    program: "Uniswap Hook Incubator — Cohort 10 (UHI-10)",
+    org: "Atrium Academy · Uniswap Foundation",
+    period: "2026",
+    location: "Online",
+    note: "Selective cohort on Uniswap v4 hook development: dynamic and game-theoretic fee design, directional fees, and MEV mitigation. Finished as a Hookathon track winner.",
+    url: "https://impact-rebated-fees.vercel.app/",
+    urlLabel: "See the winning hook",
+  },
+  {
     program: "Intensive Solidity & dApp Development (Onsite)",
     org: "Web3Bridge Africa",
     period: "Jan 2026 — May 2026",
@@ -214,6 +288,10 @@ export type Project = {
   category: string;
   year: string;
   featured: boolean;
+  /** Set when the project won something — renders a ribbon on the card and page. */
+  award?: string;
+  /** Preview image in /public, used as the case-study header and social card. */
+  image?: string;
   accent: "lime" | "pink" | "blue" | "purple" | "amber";
   summary: string;
   overview: string[];
@@ -225,6 +303,64 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "impact-rebated-fees",
+    name: "Impact Rebated Fees",
+    tagline: "A Uniswap v4 hook that prices MEV after the fact",
+    category: "Uniswap v4 · MEV Protection",
+    year: "2026",
+    featured: true,
+    award: "Track Winner · UHI-10 Hookathon",
+    image: "/impact-rebated-fees.png",
+    accent: "pink",
+    summary:
+      "A Uniswap v4 hook that charges every swap a 25 bps deposit, holds it for sixty seconds, then refunds it unless the pool was still mispriced once the trade finished. Won a prize track at the Uniswap Hook Incubator, Cohort 10. Live on Unichain Sepolia.",
+    overview: [
+      "Liquidity providers lose money to traders who are ahead of a price move. When a trade is followed by the price continuing in the same direction, it means the pool was still quoting the wrong price after that trade finished — and it is about to be traded against again at a price that is still stale.",
+      "A pool has one fee and no way to tell those traders apart, so it charges everyone enough to survive them. Someone swapping a few hundred dollars ends up paying a fee sized for damage they did not cause. This hook charges the trades that leave the pool mispriced and gives everyone else their money back.",
+      "It works in two transactions, sixty seconds apart. At the swap, the pool’s own fee is untouched and the hook takes an additional 25 bps, holding it as an ERC-6909 claim inside the PoolManager so the escrow never leaves Uniswap’s vault. Every trader is charged identically here, because the hook cannot yet know who was informed — the next sixty seconds have not happened.",
+      "At settlement, anyone can call settle(). The hook reads a running price-×time accumulator, subtracts the bookmark it saved, and divides by elapsed time to get the average price across the window. If the price kept drifting the way the trade was positioned by more than 20 ticks, the escrow is donated to the LPs; otherwise it goes back to the trader. No oracle, no off-chain service — the pool’s own price path is the entire signal.",
+      "Every comparable design (PegGuard, TRIDENT, DAMM, Nezlobin directional fees, Arb Controller) classifies a trade before it executes, which means predicting, and a fee set in advance has to be conservative. Settling afterwards has no classification error on the charging side, because it observes the outcome instead of forecasting it.",
+    ],
+    highlights: [
+      "Prize-track winner at the UHI-10 Hookathon, themed “The Fair Flow Frontier: MEV protection and sustainable low-fee liquidity on Uniswap v4.”",
+      "Replayed against 26,209 real USDC/WETH mainnet swaps: +32.7% LP revenue over the base fee alone, for an expected cost of 0.71 bps to an uninformed trader.",
+      "Recovers 42.8% of the $305,032 that informed flow captured over the sample — the gap is deliberate, since recovering all of it would double what ordinary traders pay.",
+      "Measures drift from the post-swap price, not the pre-swap price or the price paid. The first version used the price paid and failed: a trader’s own impact reverting made every threshold flag fewer trades than random chance.",
+      "Zero external dependencies — no Pyth, no Chainlink, no AVS — which is the property that distinguishes it from every prior attempt at the same goal.",
+      "Declares only afterSwap and afterSwapReturnDelta, so it never touches pricing and routers quote the pool normally. Verified against the v4 Quoter on the live pool.",
+    ],
+    features: [
+      "25 bps refundable deposit held as an ERC-6909 claim inside the PoolManager — escrow never leaves Uniswap’s vault",
+      "Permissionless settlement with a 2% bounty, so a trader who settles their own receipt pays nothing net",
+      "Unsettled escrow defaults to the LPs after ten minutes — failing in the safe direction",
+      "20-tick drift threshold chosen on trader cost rather than on flag count; revenue-maximising settings charge ordinary traders three times as much",
+      "Replay test walks a real mainnet tick series through the hook’s accumulator and asserts the Solidity drift matches an offline Python reference across all 200 cases",
+      "Next.js demo with a live settlement queue, countdown timers, and an offline snapshot fallback",
+    ],
+    stack: [
+      "Solidity 0.8.26",
+      "Uniswap v4 (core + periphery)",
+      "Foundry (cancun, invariant + fuzz)",
+      "ERC-6909 Claims",
+      "Python (offline analysis)",
+      "Next.js 16",
+      "wagmi + viem",
+      "Unichain Sepolia",
+    ],
+    meta: [
+      { label: "LP revenue", value: "+32.7%" },
+      { label: "Trader cost", value: "+0.71 bps" },
+      { label: "Swaps replayed", value: "26,209" },
+      { label: "Tests", value: "26 · 96% cov" },
+    ],
+    links: {
+      github: "https://github.com/RaymondAbiola/Impact-Rebated-Fees",
+      demo: "https://impact-rebated-fees.vercel.app/",
+      explorer:
+        "https://sepolia.uniscan.xyz/address/0x7dEC15A39D42c9B5d41E0c351c0C9aDcbC8AC044",
+    },
+  },
   {
     slug: "trustwork",
     name: "TrustWork",

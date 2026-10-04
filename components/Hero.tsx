@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowDownRight, ChevronDown, Mail } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, ChevronDown, Mail, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
-import { profile, socials } from "@/lib/data";
+import { award, profile, socials } from "@/lib/data";
 import { ConfettiDots } from "./ConfettiDots";
 import { Portrait } from "./Portrait";
 import { Github, Linkedin, Telegram, XIcon } from "./BrandIcons";
@@ -60,6 +60,29 @@ export function Hero() {
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.15fr_0.85fr]">
         {/* Text column */}
         <div>
+          {/* Award badge — the strongest single credential, so it leads */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-5"
+          >
+            <Link
+              href={`/projects/${award.projectSlug}`}
+              className="group inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1.5 text-xs font-medium text-accent transition-colors hover:border-accent hover:bg-accent/20 sm:text-sm"
+            >
+              <Trophy className="h-3.5 w-3.5 shrink-0" />
+              <span>
+                {award.placement}
+                <span className="mx-1.5 opacity-50" aria-hidden>
+                  ·
+                </span>
+                {award.eventShort}
+              </span>
+              <ArrowUpRight className="h-3.5 w-3.5 shrink-0 opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

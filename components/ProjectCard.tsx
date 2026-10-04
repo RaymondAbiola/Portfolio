@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Trophy } from "lucide-react";
 import { Github } from "./BrandIcons";
 import type { Project } from "@/lib/data";
 import { accentVar } from "@/lib/accent";
@@ -17,6 +17,13 @@ export function ProjectCard({ project }: { project: Project }) {
         className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-20 blur-3xl transition-opacity duration-300 group-hover:opacity-40"
         style={{ backgroundColor: color }}
       />
+
+      {project.award ? (
+        <div className="mb-3 inline-flex max-w-full items-center gap-1.5 self-start rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 text-[11px] font-semibold text-accent">
+          <Trophy className="h-3 w-3 shrink-0" />
+          <span className="truncate">{project.award}</span>
+        </div>
+      ) : null}
 
       <div>
         <span

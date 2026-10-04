@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Check, ExternalLink } from "lucide-react";
+import { ArrowLeft, Check, ExternalLink, Trophy } from "lucide-react";
 import { Github } from "@/components/BrandIcons";
 import { getProject, projects } from "@/lib/data";
 import { accentVar } from "@/lib/accent";
@@ -24,7 +25,14 @@ export async function generateMetadata({
   return {
     title: `${project.name} — ${project.tagline}`,
     description: project.summary,
-    openGraph: { title: project.name, description: project.summary },
+    openGraph: {
+      title: project.name,
+      description: project.summary,
+      ...(project.image ? { images: [{ url: project.image }] } : {}),
+    },
+    ...(project.image
+      ? { twitter: { card: "summary_large_image" as const, images: [project.image] } }
+      : {}),
   };
 }
 
@@ -65,6 +73,13 @@ export default async function ProjectPage({
             </h1>
             <p className="mt-3 text-lg text-muted">{project.tagline}</p>
 
+            {project.award ? (
+              <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-sm font-semibold text-accent">
+                <Trophy className="h-4 w-4 shrink-0" />
+                {project.award}
+              </div>
+            ) : null}
+
             <div className="mt-6 flex flex-wrap gap-3">
               {project.links.demo && (
                 <a
@@ -86,8 +101,33 @@ export default async function ProjectPage({
                   <Github className="h-4 w-4" /> Source
                 </a>
               )}
+              {project.links.explorer && (
+                <a
+                  href={project.links.explorer}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-border-strong px-5 py-2.5 text-sm font-semibold transition-colors hover:border-accent hover:text-accent"
+                >
+                  <ExternalLink className="h-4 w-4" /> Explorer
+                </a>
+              )}
             </div>
           </Reveal>
+
+          {project.image ? (
+            <Reveal delay={0.05}>
+              <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-soft)]">
+                <Image
+                  src={project.image}
+                  alt={`${project.name} — ${project.tagline}`}
+                  width={1536}
+                  height={1024}
+                  priority
+                  className="h-auto w-full"
+                />
+              </div>
+            </Reveal>
+          ) : null}
 
           {/* Meta strip */}
           <Reveal delay={0.05}>
